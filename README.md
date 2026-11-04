@@ -5,11 +5,14 @@ resistor/capacitor networks, voltage dividers, E-series, RC/RL filters, SI forma
 and a compact `printEL` table output. No runtime dependencies (IPython optional).
 
 ## Installation
+```bash
+upip='uv pip install --python ~/.local/share/python-default-env'
+```
 
 ```bash
-pip install electronic-helpers            # or: uv add electronic-helpers
-pip install "electronic-helpers[notebook]"  # HTML output in Jupyter
-pip install git+https://github.com/tedeler/ElectronicHelpers
+upip electronic-helpers            # or: uv add electronic-helpers
+upip "electronic-helpers[notebook]"  # HTML output in Jupyter
+upip git+https://github.com/tedeler/ElectronicHelpers
 ```
 
 ## Usage
