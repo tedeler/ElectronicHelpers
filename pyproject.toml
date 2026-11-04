@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "electronic-helpers"
+dynamic = ["version"]
+description = "Helper functions for electronics: Ohm's law, resistor networks, E-series, filters, SI formatting."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "tedeler" }]
+keywords = ["electronics", "resistor", "ohm", "E-series", "filter", "SI"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+notebook = ["ipython>=7"]
+dev = ["pytest>=7", "pytest-cov", "ruff", "mypy", "build", "twine"]
+
+[project.urls]
+Homepage = "https://github.com/tedeler/ElectronicHelpers"
+Issues = "https://github.com/tedeler/ElectronicHelpers/issues"
+
+[tool.hatch.version]
+path = "src/electronic_helpers/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/electronic_helpers"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[[tool.mypy.overrides]]
+module = ["IPython", "IPython.*"]
+ignore_missing_imports = true
+follow_imports = "skip"
